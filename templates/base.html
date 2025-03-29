@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header class = "header"> <header>
+            <h1>SSW</h1>
+            <nav>
+                <ul>
+                    <il><a href="{{url_for('home')}}">Home</a></il>
+                    <il><a href="{{url_for('about')}}">About the Author </a></il>
+                    <il><a href="{{url_for('contact')}}">Contact </a></il>
+                    <il><a href="{{url_for('project')}}">My projects </a></il>
+
+                </ul>
+            </nav>
+        </header>
+        <hr>
+        <main class="main-content">
+            {% block body %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+<footer class="footer">
+    <p> Copyright &copy; {{current_year}} SSW. All right reserved</p>
+</footer>
+</html>

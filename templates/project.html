@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+<body>
+    <form action="{{url_for('project')}}" method="post">
+
+        <H2>My projects are are follows:</H2>
+
+        <h3>Hangman</h3>
+        <p>
+        A fun game of Hangman that you can play in your terminal!
+        </p>
+        <p>
+        I used python to make it.
+        </p>
+        <a href="https://github.com/Shire3/Hangman">Hangman</a>
+
+
+        <h3>Social Sphere</h3>
+        <p>
+        A website that I made with help from my teacher
+        </p>
+        <p>
+        I used python, html and css to make it.
+        </p>
+        <a href="https://github.com/Shire3/Shire">Social Sphere</a>
+
+
+
+
+
+        {% endblock %}

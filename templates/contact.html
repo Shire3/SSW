@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+<body>
+    <form action="{{url_for('contact')}}" method="post">
+
+        <label for="name"> Name:</label>
+        <input type="text" name="name">
+        <br><br>
+        <label for="email">Email :</label>
+        <input type="text" name="email">
+        <br><br>
+        <textarea name="post" id="" placeholder="Write here"></textarea>
+        <br><br>
+        <hr>
+
+        <H2>Rules:</H2>
+        <hr>
+        - No bad texts 
+        <div></div>
+        - Help others if needed 
+        <div></div>
+        - Have fun
+
+
+
+         {% endblock %}
