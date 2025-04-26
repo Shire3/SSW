@@ -1,5 +1,5 @@
 body {
-    font-family: 'Lbster';
+    font-family: 'Lobster';
     background-color: #817d7d;
     color: #ffffff;
     margin:0;
@@ -26,21 +26,13 @@ body {
     color: #ff6f61;
   }
   
-  .header nav ul{
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
   
-  .header ul li{
-    margin: 0 1rem;
-  }
-  
-  .header nav ul li a{
+  .nav ul{
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
+    border-color: #ff6f61;
+    padding: 20px;
   }
   
   .header nav ul li a :hover{
@@ -110,5 +102,7 @@ body {
     margin-top: auto;
     transform: translateZ(-10px);
   }
+  img{height: 100px;
+      width: 100px;}
   
   

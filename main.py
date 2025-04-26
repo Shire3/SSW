@@ -1,14 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
-from flask_migrate import Migrate
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask_mail import Mail, Message
 import datetime
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']="postgresql://shire_user:fEmGeHCQSlftwWfZpM1Fq29xn0MvxXcL@dpg-cv6a21rtq21c73dh2gjg-a/shire"
-app.secret_key="ichascnchdcuncducbeduc"
+
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT']=465
+app.config['MAIL_USERNAME']='adesolaisa3@gmail.com'
+app.config['MAIL_PASSWORD']='gflehshjaavgqdwo'
+app.config['MAIL_USE_TLS']=False
+app.config['MAIL_USE_SSL']=True
+app.config['MAIL_DEFAULT_SENDER']='adesolaisa3@gmail.com'
+
+Mail=Mail(app)
 
 year= datetime.datetime.now().year
 
@@ -20,9 +25,22 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route('/contact', methods= ["POST", "GET"])
+@app.route("/contact", methods= ["GET", "POST"])
 def contact():
+    if request.method == "POST" :
+        message = request.form.get("message")
+        user = request.form.get("home")
+        user_mail = request.form.get("email")
+
+        msg = Message(
+            subject="User feedback",
+            recipients= ["adesolaisa3@gmail.com" , "siyishire@gmail.com"],
+            body =f"The user {user}, sent a feedback message saying {message} you can respond at {user_mail}",
+        )
+        Mail.send(msg)
+        return "Message sent successfully"
     return render_template("contact.html")
+
     
 @app.route('/project')
 def project():

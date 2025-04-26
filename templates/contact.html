@@ -2,15 +2,17 @@
 {% block body %}
 <body>
     <form action="{{url_for('contact')}}" method="post">
+        
 
         <label for="name"> Name:</label>
-        <input type="text" name="name">
-        <br><br>
+        <input name="name" type="text" placeholder="John Doe">
+        <br>
         <label for="email">Email :</label>
-        <input type="text" name="email">
-        <br><br>
+        <input name="email" type="text" >
+        <br>
         <textarea name="post" id="" placeholder="Write here"></textarea>
-        <br><br>
+        <button>Submitt</button>
+
         <hr>
 
         <H2>Rules:</H2>
@@ -21,6 +23,6 @@
         <div></div>
         - Have fun
 
-
+    </form>
 
          {% endblock %}
